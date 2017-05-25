@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "QRCodeScaleViewController.h"
+#import "QRCodeScanViewController.h"
 
 @interface ViewController ()
 
@@ -28,7 +28,7 @@
 }
 
 - (void)btnClick {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[QRCodeScaleViewController new]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[QRCodeScanViewController new]];
     [self presentViewController:nav animated:NO completion:nil];
 }
 

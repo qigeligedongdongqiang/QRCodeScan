@@ -1,15 +1,51 @@
 //
-//  QRCodeScaleViewController.m
+//  QRCodeScanViewController.m
 //  QRCodeScale
 //
 //  Created by Ngmm_Jadon on 2017/5/24.
 //  Copyright © 2017年 Ngmm_Jadon. All rights reserved.
 //
 
-#import "QRCodeScaleViewController.h"
+#import "QRCodeScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface QRCodeScaleViewController ()<AVCaptureMetadataOutputObjectsDelegate,CALayerDelegate>
+@interface ScanAnimationLayer ()
+
+@property (nonatomic, assign) CGFloat lineStartY;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer;
+
+@end
+
+@implementation ScanAnimationLayer
+
+- (void)layoutSublayers {
+    [super layoutSublayers];
+    
+    _lineStartY = 0.0f;
+    
+    _shapeLayer = [CAShapeLayer layer];
+    _shapeLayer.strokeColor = [UIColor greenColor].CGColor;
+    _shapeLayer.lineWidth = 0.5;
+    [self addSublayer:_shapeLayer];
+    
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(paintCurrentLine)];
+    [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)paintCurrentLine {
+    self.lineStartY += 1.5;
+    if (self.lineStartY > self.frame.size.height) {
+        self.lineStartY = 0.0f;
+    }
+    UIBezierPath *path = [[UIBezierPath alloc] init];
+    [path moveToPoint:CGPointMake(0, self.lineStartY)];
+    [path addLineToPoint:CGPointMake(self.frame.size.width, self.lineStartY)];
+    _shapeLayer.path = path.CGPath;
+}
+
+@end
+
+@interface QRCodeScanViewController ()<AVCaptureMetadataOutputObjectsDelegate,CALayerDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *session;
 @property (nonatomic, strong) AVCaptureDevice *device;
@@ -18,26 +54,30 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoLayer;
 
 @property (nonatomic, strong) CALayer *maskLayer;
+@property (nonatomic, strong) UIView *centerScanView;
+@property (nonatomic, strong) ScanAnimationLayer *animationLayer;
+
 @property (nonatomic, assign) CGRect scanRect;
 
 @end
 
-@implementation QRCodeScaleViewController
+@implementation QRCodeScanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setScanConfig];
-    [self addCenterScanView];
+    [self addSubViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self setNav];
-    [self.session startRunning];
+    [self startScaning];
 }
 
+#pragma mark - setNavigationItem
 - (void)setNav {
     self.navigationItem.title = @"扫一扫";
     
@@ -54,6 +94,7 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+#pragma mark - setAVCapture
 - (void)setScanConfig {
     //创建会话
     self.session = [[AVCaptureSession alloc] init];
@@ -100,10 +141,27 @@
     //    }];
 }
 
+#pragma mark - addSubviews
+- (void)addSubViews {
+    [self addCenterScanView];
+    [self addTipLabel];
+}
+
+- (void)addTipLabel {
+    UILabel *tipLabel = [[UILabel alloc] init];
+    tipLabel.bounds = CGRectMake(0, 0, self.view.bounds.size.width, 30);
+    tipLabel.center = CGPointMake(self.centerScanView.center.x, CGRectGetMaxY(self.centerScanView.frame)+50);
+    tipLabel.text = @"将二维码放入框内，即可自动扫描";
+    tipLabel.textColor = [UIColor whiteColor];
+    tipLabel.font = [UIFont systemFontOfSize:15];
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tipLabel];
+}
+
 - (void)addCenterScanView {
-    UIView *ceterScanView = [[UIView alloc] initWithFrame:self.scanRect];
-    ceterScanView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:ceterScanView];
+    self.centerScanView = [[UIView alloc] initWithFrame:self.scanRect];
+    self.centerScanView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.centerScanView];
     
     for (NSInteger i = 0; i < 4; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Scan_icon"]];
@@ -112,38 +170,56 @@
                 imgV.frame = CGRectMake(0, 0, 15, 15);
                 break;
             case 1:
-                imgV.frame = CGRectMake(ceterScanView.bounds.size.width - 15, 0, 15, 15);
+                imgV.frame = CGRectMake(self.centerScanView.bounds.size.width - 15, 0, 15, 15);
                 imgV.transform = CGAffineTransformMakeRotation(M_PI*0.5);
                 break;
             case 2:
-                imgV.frame = CGRectMake(0, ceterScanView.bounds.size.height - 15, 15, 15);
+                imgV.frame = CGRectMake(0, self.centerScanView.bounds.size.height - 15, 15, 15);
                 imgV.transform = CGAffineTransformMakeRotation(-M_PI*0.5);
                 break;
             case 3:
-                imgV.frame = CGRectMake(ceterScanView.bounds.size.width - 15, ceterScanView.bounds.size.height - 15, 15, 15);
+                imgV.frame = CGRectMake(self.centerScanView.bounds.size.width - 15, self.centerScanView.bounds.size.height - 15, 15, 15);
                 imgV.transform = CGAffineTransformMakeRotation(M_PI);
                 break;
             default:
                 break;
         }
-        [ceterScanView addSubview:imgV];
+        [self.centerScanView addSubview:imgV];
     }
+    
+}
+
+#pragma mark - scan action
+- (void)startScaning {
+    [self.session startRunning];
+    
+    _animationLayer = [[ScanAnimationLayer alloc] init];
+    _animationLayer.frame = CGRectMake(0, 0, _scanRect.size.width, _scanRect.size.height);
+    [self.centerScanView.layer addSublayer:_animationLayer];
+}
+
+- (void)stopScaning {
+    [self.session stopRunning];
+    
+    [_animationLayer removeFromSuperlayer];
 }
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     AVMetadataMachineReadableCodeObject *object = [metadataObjects lastObject];
     NSString *result = object.stringValue;
-    [self.session stopRunning];
+    [self stopScaning];
     NSLog(@"%@",result);
 }
 
 #pragma mark - CALayerDelegate
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-    UIGraphicsBeginImageContextWithOptions(self.maskLayer.frame.size, NO, 1.0);
-    CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8].CGColor);
-    CGContextFillRect(ctx, self.maskLayer.frame);
-    CGContextClearRect(ctx, self.scanRect);
+    if (layer == self.maskLayer) {
+        UIGraphicsBeginImageContextWithOptions(self.maskLayer.frame.size, NO, 1.0);
+        CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8].CGColor);
+        CGContextFillRect(ctx, self.maskLayer.frame);
+        CGContextClearRect(ctx, self.scanRect);
+    }
 }
 
 #pragma mark - lazyLoad

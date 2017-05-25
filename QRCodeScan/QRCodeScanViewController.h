@@ -1,5 +1,5 @@
 //
-//  QRCodeScaleViewController.h
+//  QRCodeScanViewController.h
 //  QRCodeScale
 //
 //  Created by Ngmm_Jadon on 2017/5/24.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QRCodeScaleViewController : UIViewController
+@interface ScanAnimationLayer : CALayer
+
+@end
+
+@interface QRCodeScanViewController : UIViewController
 
 @end

@@ -13,11 +13,11 @@
 		848A1CEF1ED58AF200143EEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848A1CED1ED58AF200143EEC /* Main.storyboard */; };
 		848A1CF11ED58AF200143EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848A1CF01ED58AF200143EEC /* Assets.xcassets */; };
 		848A1CF41ED58AF200143EEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848A1CF21ED58AF200143EEC /* LaunchScreen.storyboard */; };
-		848A1CFD1ED58B1F00143EEC /* QRCodeScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848A1CFC1ED58B1F00143EEC /* QRCodeScaleViewController.m */; };
+		848A1CFD1ED58B1F00143EEC /* QRCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		848A1CE11ED58AF200143EEC /* QRCodeScale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeScale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		848A1CE11ED58AF200143EEC /* QRCodeScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848A1CE51ED58AF200143EEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		848A1CE71ED58AF200143EEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		848A1CE81ED58AF200143EEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -27,8 +27,8 @@
 		848A1CF01ED58AF200143EEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		848A1CF31ED58AF200143EEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		848A1CF51ED58AF200143EEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		848A1CFB1ED58B1F00143EEC /* QRCodeScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScaleViewController.h; sourceTree = "<group>"; };
-		848A1CFC1ED58B1F00143EEC /* QRCodeScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScaleViewController.m; sourceTree = "<group>"; };
+		848A1CFB1ED58B1F00143EEC /* QRCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScanViewController.h; sourceTree = "<group>"; };
+		848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 		848A1CD81ED58AF200143EEC = {
 			isa = PBXGroup;
 			children = (
-				848A1CE31ED58AF200143EEC /* QRCodeScale */,
+				848A1CE31ED58AF200143EEC /* QRCodeScan */,
 				848A1CE21ED58AF200143EEC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,27 +53,27 @@
 		848A1CE21ED58AF200143EEC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				848A1CE11ED58AF200143EEC /* QRCodeScale.app */,
+				848A1CE11ED58AF200143EEC /* QRCodeScan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		848A1CE31ED58AF200143EEC /* QRCodeScale */ = {
+		848A1CE31ED58AF200143EEC /* QRCodeScan */ = {
 			isa = PBXGroup;
 			children = (
 				848A1CE71ED58AF200143EEC /* AppDelegate.h */,
 				848A1CE81ED58AF200143EEC /* AppDelegate.m */,
 				848A1CEA1ED58AF200143EEC /* ViewController.h */,
 				848A1CEB1ED58AF200143EEC /* ViewController.m */,
-				848A1CFB1ED58B1F00143EEC /* QRCodeScaleViewController.h */,
-				848A1CFC1ED58B1F00143EEC /* QRCodeScaleViewController.m */,
+				848A1CFB1ED58B1F00143EEC /* QRCodeScanViewController.h */,
+				848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */,
 				848A1CED1ED58AF200143EEC /* Main.storyboard */,
 				848A1CF01ED58AF200143EEC /* Assets.xcassets */,
 				848A1CF21ED58AF200143EEC /* LaunchScreen.storyboard */,
 				848A1CF51ED58AF200143EEC /* Info.plist */,
 				848A1CE41ED58AF200143EEC /* Supporting Files */,
 			);
-			path = QRCodeScale;
+			path = QRCodeScan;
 			sourceTree = "<group>";
 		};
 		848A1CE41ED58AF200143EEC /* Supporting Files */ = {
@@ -87,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		848A1CE01ED58AF200143EEC /* QRCodeScale */ = {
+		848A1CE01ED58AF200143EEC /* QRCodeScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 848A1CF81ED58AF200143EEC /* Build configuration list for PBXNativeTarget "QRCodeScale" */;
+			buildConfigurationList = 848A1CF81ED58AF200143EEC /* Build configuration list for PBXNativeTarget "QRCodeScan" */;
 			buildPhases = (
 				848A1CDD1ED58AF200143EEC /* Sources */,
 				848A1CDE1ED58AF200143EEC /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = QRCodeScale;
+			name = QRCodeScan;
 			productName = QRCodeScale;
-			productReference = 848A1CE11ED58AF200143EEC /* QRCodeScale.app */;
+			productReference = 848A1CE11ED58AF200143EEC /* QRCodeScan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 848A1CDC1ED58AF200143EEC /* Build configuration list for PBXProject "QRCodeScale" */;
+			buildConfigurationList = 848A1CDC1ED58AF200143EEC /* Build configuration list for PBXProject "QRCodeScan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				848A1CE01ED58AF200143EEC /* QRCodeScale */,
+				848A1CE01ED58AF200143EEC /* QRCodeScan */,
 			);
 		};
 /* End PBXProject section */
@@ -159,7 +159,7 @@
 				848A1CEC1ED58AF200143EEC /* ViewController.m in Sources */,
 				848A1CE91ED58AF200143EEC /* AppDelegate.m in Sources */,
 				848A1CE61ED58AF200143EEC /* main.m in Sources */,
-				848A1CFD1ED58B1F00143EEC /* QRCodeScaleViewController.m in Sources */,
+				848A1CFD1ED58B1F00143EEC /* QRCodeScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ECU3KC8L7;
-				INFOPLIST_FILE = QRCodeScale/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeScan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.QRCodeScale;
@@ -291,7 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ECU3KC8L7;
-				INFOPLIST_FILE = QRCodeScale/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/QRCodeScan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.QRCodeScale;
@@ -302,7 +302,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		848A1CDC1ED58AF200143EEC /* Build configuration list for PBXProject "QRCodeScale" */ = {
+		848A1CDC1ED58AF200143EEC /* Build configuration list for PBXProject "QRCodeScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848A1CF61ED58AF200143EEC /* Debug */,
@@ -311,13 +311,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		848A1CF81ED58AF200143EEC /* Build configuration list for PBXNativeTarget "QRCodeScale" */ = {
+		848A1CF81ED58AF200143EEC /* Build configuration list for PBXNativeTarget "QRCodeScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848A1CF91ED58AF200143EEC /* Debug */,
 				848A1CFA1ED58AF200143EEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "848A1CE01ED58AF200143EEC"
-               BuildableName = "QRCodeScale.app"
-               BlueprintName = "QRCodeScale"
-               ReferencedContainer = "container:QRCodeScale.xcodeproj">
+               BuildableName = "QRCodeScan.app"
+               BlueprintName = "QRCodeScan"
+               ReferencedContainer = "container:QRCodeScan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "848A1CE01ED58AF200143EEC"
-            BuildableName = "QRCodeScale.app"
-            BlueprintName = "QRCodeScale"
-            ReferencedContainer = "container:QRCodeScale.xcodeproj">
+            BuildableName = "QRCodeScan.app"
+            BlueprintName = "QRCodeScan"
+            ReferencedContainer = "container:QRCodeScan.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "848A1CE01ED58AF200143EEC"
-            BuildableName = "QRCodeScale.app"
-            BlueprintName = "QRCodeScale"
-            ReferencedContainer = "container:QRCodeScale.xcodeproj">
+            BuildableName = "QRCodeScan.app"
+            BlueprintName = "QRCodeScan"
+            ReferencedContainer = "container:QRCodeScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "848A1CE01ED58AF200143EEC"
-            BuildableName = "QRCodeScale.app"
-            BlueprintName = "QRCodeScale"
-            ReferencedContainer = "container:QRCodeScale.xcodeproj">
+            BuildableName = "QRCodeScan.app"
+            BlueprintName = "QRCodeScan"
+            ReferencedContainer = "container:QRCodeScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
