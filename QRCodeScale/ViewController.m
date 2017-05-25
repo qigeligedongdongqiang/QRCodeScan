@@ -19,13 +19,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = self.view.bounds;
+    [btn setTitle:@"扫一扫" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    btn.center = self.view.center;
+    btn.bounds = CGRectMake(0, 0, 150, 100);
     [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
 
 - (void)btnClick {
-    [self presentViewController:[QRCodeScaleViewController new] animated:NO completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[QRCodeScaleViewController new]];
+    [self presentViewController:nav animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
