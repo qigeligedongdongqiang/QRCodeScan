@@ -9,5 +9,6 @@ QRCodeScanViewController is a class for commonly using.It contains knowledge of 
 ##The Picture
 ![scaning](scaning.PNG)
 
+
 #License
 Released under the MIT license. See LICENSE for details.
