@@ -1,4 +1,5 @@
-##ABOUT
+## ABOUT
+
 QRCodeScanViewController is a class for commonly using.It contains knowledge of AVFoundation,mainly:
 - AVCaptureSession
 - AVCaptureDevice
@@ -6,9 +7,10 @@ QRCodeScanViewController is a class for commonly using.It contains knowledge of 
 - AVCaptureMetadataOutput
 - AVCaptureVideoPreviewLayer
 
-##The Picture
+## The Picture
+
 ![scaning](scaning.PNG)
 
+## License
 
-#License
 Released under the MIT license. See LICENSE for details.
