@@ -14,6 +14,7 @@
 		848A1CF11ED58AF200143EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848A1CF01ED58AF200143EEC /* Assets.xcassets */; };
 		848A1CF41ED58AF200143EEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848A1CF21ED58AF200143EEC /* LaunchScreen.storyboard */; };
 		848A1CFD1ED58B1F00143EEC /* QRCodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */; };
+		84BF38191ED6C6C400CE6AD5 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF38181ED6C6C400CE6AD5 /* ResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		848A1CF51ED58AF200143EEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848A1CFB1ED58B1F00143EEC /* QRCodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScanViewController.h; sourceTree = "<group>"; };
 		848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScanViewController.m; sourceTree = "<group>"; };
+		84BF38171ED6C6C400CE6AD5 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		84BF38181ED6C6C400CE6AD5 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				848A1CE81ED58AF200143EEC /* AppDelegate.m */,
 				848A1CEA1ED58AF200143EEC /* ViewController.h */,
 				848A1CEB1ED58AF200143EEC /* ViewController.m */,
+				84BF38171ED6C6C400CE6AD5 /* ResultViewController.h */,
+				84BF38181ED6C6C400CE6AD5 /* ResultViewController.m */,
 				848A1CFB1ED58B1F00143EEC /* QRCodeScanViewController.h */,
 				848A1CFC1ED58B1F00143EEC /* QRCodeScanViewController.m */,
 				848A1CED1ED58AF200143EEC /* Main.storyboard */,
@@ -159,6 +164,7 @@
 				848A1CEC1ED58AF200143EEC /* ViewController.m in Sources */,
 				848A1CE91ED58AF200143EEC /* AppDelegate.m in Sources */,
 				848A1CE61ED58AF200143EEC /* main.m in Sources */,
+				84BF38191ED6C6C400CE6AD5 /* ResultViewController.m in Sources */,
 				848A1CFD1ED58B1F00143EEC /* QRCodeScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 #import "QRCodeScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ResultViewController.h"
 
 @interface ScanAnimationLayer ()
 
@@ -210,6 +211,7 @@
     NSString *result = object.stringValue;
     [self stopScaning];
     NSLog(@"%@",result);
+    [self.navigationController pushViewController:[[ResultViewController alloc]initWithResult:result] animated:YES];
 }
 
 #pragma mark - CALayerDelegate
